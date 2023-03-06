@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title> BFF - Register </title>
+
+</head>
+
+{% extends "base2.html" %}
+
+<body>
+
+{% block content %}
+
+<!-- Carousel
+    ================================================== -->
+    <div style="max-width: 100%;" id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+
+                    <div class="carousel-caption">
+
+                        <span style="font-size: 40px;"><b>Create An Account</b></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- /.carousel -->
+<br><br>
+<div class="col-lg-11">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <div class="alert alert-success alert-dismissible" style="text-align:center">
+            <p>Before Signing Up, Kindly Read And Accept Our <a href="{% url 'term' %}" class="btn btn-primary">Terms Of Service</a> and <a href="{% url 'privacy' %}" class="btn btn-primary">Privacy Policy</a></p>
+        </div>
+
+            <button class="btn btn-success">Sign Up</button>
+
+        <p style="text-align: center;"><br>Already Have An Account?<br><a href="{% url 'login' %}" class="btn btn-primary">Log In</a></p>
+
+    </form>
+
+<br><br><br><br><br>
+</div>
+
+{% endblock content %}
+
+</body>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title> BFF - Completed Tasks </title>
+
+</head>
+
+{% extends "base1.html" %}
+
+<body>
+
+{% block content %}
+
+<!-- Carousel
+    ================================================== -->
+    <div style="max-width: 100%;" id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+
+                    {% for image5 in image5 %}<div class="carousel-caption">
+
+                        <img src="{{ image5.image5.url }}" width="100">
+
+                        <span style="font-size: 40px;"><b>Completed Tasks</b></span>
+
+                    </div>{%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- /.carousel -->
+<br><br>
+<a href="{% url 'addtodo' %}" class="btn btn-primary">Add Task</a> <a href="{% url 'todo' %}" class="btn btn-primary">View Ongoing Tasks</a>
+
+<br><br>
+<table height="300" style="max-width: fit-content;" align="center">
+    <tr>
+        <th>Task</th>
+        <th>Short Description</th>
+        <th>Status</th>
+        <th>Actions</th>
+        <th>Date Updated</th>
+    </tr>
+{% for data in dataset %}
+    <tr>
+        <td>{{data.task|title}}</td>
+        <td>{{data.short_description|title}}</td>
+        <td>{{data.status}}</td>
+        <td><a href="{% url 'changer' id=data.id %}" class="btn btn-info">Mark As Ongoing</a><br><br><a href="{% url 'deletetodo' id=data.id %}" class="btn btn-danger">Delete Task</a></td>
+        <td>{{data.date_updated}}</td>
+    </tr>
+
+{%empty%}
+
+<br><br>
+<div style="text-align:center"><h2>You Haven't Completed Any To-Do List</h2></div>
+<br><br><br><br><br>
+
+{%endfor%}
+</table>
+
+<br><br><br><br><br>
+
+{% endblock content %}
+
+</body>

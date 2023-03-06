@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title> BFF - Log In </title>
+
+</head>
+
+{% extends "base2.html" %}
+
+<body>
+
+{% block content %}
+
+<!-- Carousel
+    ================================================== -->
+    <div style="max-width: 100%;" id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+
+                    <div class="carousel-caption">
+
+                        <span style="font-size: 40px;"><b>Log In To Your Account</b></span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- /.carousel -->
+<br><br>
+<div class="col-lg-11">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <button class="btn btn-success">Log In</button>
+
+        <p style="text-align: center;"><br>New User?<br><a href="{% url 'register' %}" class="btn btn-primary">Create An Account</a></p>
+
+    </form>
+
+<br><br><br><br><br>
+</div>
+
+{% endblock content %}
+
+</body>

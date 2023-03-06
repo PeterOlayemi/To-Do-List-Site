@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title> BFF - Home </title>
+
+{% for image2 in image2 %}
+
+    <style>
+
+        .carousel .item {
+            height: 550px;
+            background-image: linear-gradient(rgba(75, 80, 181, 0.9), rgba(0, 0, 0, 0.9) ), url('{{ image2.image2.url }}');      
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            max-width: 100%;
+            color: white;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            -moz-background-size: cover;
+            -ms-background-size: cover;
+        }
+
+        body {font-size: 20px; max-width: 100%;}
+
+        a:link {color: blue;}
+        a:visited {color: blue;}
+        a:hover {color: blue;}
+        a:active {color: blue;}
+
+        .navbar-wrapper {
+            margin-top: 20px;
+        }
+        .navbar-wrapper .container {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .navbar-wrapper .navbar {
+            padding-right: 0;
+            padding-left: 0;
+            border-radius: 4px;
+        }
+
+    </style>
+
+{%endfor%}
+
+</head>
+
+<body>
+
+<div class="navbar-wrapper">
+
+    <div class="container">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                    {% for image1 in image1 %}
+
+                    <a class="navbar-brand" href="#"><div style="color:blue; font-size: larger;"><img src="{{ image1.image1.url }}" width="50"><b style="padding-left: 20px;">Big Foot Family</b></div></a>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+{% block content %} {% endblock content %}
+
+</body>

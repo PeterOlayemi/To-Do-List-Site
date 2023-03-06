@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title> BFF - Add Task </title>
+
+</head>
+
+{% extends "base1.html" %}
+
+<body>
+
+{% block content %}
+
+<!-- Carousel
+    ================================================== -->
+    <div style="max-width: 100%;" id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+
+                    {% for image5 in image5 %}<div class="carousel-caption">
+
+                        <img src="{{ image5.image5.url }}" width="100">
+
+                        <span style="font-size: 40px;"><b>Add Task</b></span>
+
+                    </div>{%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- /.carousel -->
+<br><br>
+<div class="col-lg-11">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button class="btn btn-success">Add</button>
+
+    </form>
+
+<br><br><br><br><br>
+</div>
+
+{% endblock content %}
+
+</body>
