@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import CreateView
 
-from .models import User, Todo, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9
+from .models import User, Todo
 from .forms import RegisterForm, TodoForm
 
 # Create your views here.
@@ -44,27 +44,18 @@ def deletetodo(request, id):
 
 @login_required
 def andtodo(request):
-    image1=Image1.objects.all()
-    image2=Image2.objects.all()
-    image5=Image5.objects.all()
     dataset = Todo.objects.all().filter(owner=request.user, status='Completed').order_by('-date_updated')
-    context={'dataset':dataset, 'image1':image1, 'image2':image2, 'image5':image5, }
+    context={'dataset':dataset}
     return render(request, 'andtodo.html', context)
 
 @login_required
 def todo(request):
-    image1=Image1.objects.all()
-    image2=Image2.objects.all()
-    image5=Image5.objects.all()
     dataset = Todo.objects.all().filter(owner=request.user, status='Ongoing').order_by('-date_updated')
-    context={'dataset':dataset, 'image1':image1, 'image2':image2, 'image5':image5, }
+    context={'dataset':dataset}
     return render(request, 'todo.html', context)
 
 @login_required
 def addtodo(request):
-    image1=Image1.objects.all()
-    image2=Image2.objects.all()
-    image5=Image5.objects.all()
     if request.method != 'POST':
         form = TodoForm()
     else:
@@ -75,7 +66,7 @@ def addtodo(request):
             new_student.owner=request.user
             new_student.save()
             return HttpResponseRedirect(reverse('todo'))
-    context = {'form': form, 'image1':image1, 'image2':image2, 'image5':image5,}
+    context = {'form': form}
     return render(request, 'addtodo.html', context)
 
 class register(CreateView):
@@ -93,13 +84,4 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('home'))
 
 def home(request):
-    image1=Image1.objects.all()
-    image2=Image2.objects.all()
-    image3=Image3.objects.all()
-    image4=Image4.objects.all()
-    image5=Image5.objects.all()
-    image6=Image6.objects.all()
-    image7=Image7.objects.all()
-    image8=Image8.objects.all()
-    image9=Image9.objects.all()
-    return render(request, 'index.html', {'image1':image1, 'image2':image2, 'image3':image3, 'image4':image4, 'image5':image5, 'image6':image6, 'image7':image7, 'image8':image8, 'image9':image9})
+    return render(request, 'index.html')

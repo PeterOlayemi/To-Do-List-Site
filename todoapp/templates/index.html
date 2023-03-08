@@ -3,6 +3,7 @@
 <body>
 
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -27,25 +28,25 @@
 {% if user.is_authenticated %}
 
 <ul style="max-width: 100%;" class="nav navbar-nav">
-    {% for image3 in image3 %}<li><a style="color:black"><img style="padding-left: 30px;" src="{{ image3.image3.url }}" width="80"></a><a style="color:black; padding-left: 40px;">{{ user.username|title }}</a></li>{%endfor%}
-    {% for image4 in image4 %}<li><a style="color:black" href="{% url 'home' %}"><img style="padding-left: 25px;" src="{{ image4.image4.url }}" width="85"></a><a style="color:black" href="{% url 'home' %}"><span style="padding-left: 25px;">Home</span></a></li>{%endfor%}
-    {% for image5 in image5 %}<li><a style="color:black" href="{% url 'todo' %}"><img style="padding-left: 30px;" src="{{ image5.image5.url }}" width="80"></a><a style="color:black" href="{% url 'todo' %}"><span style="padding-left: 10px;">To-Do List</span></a></li>{%endfor%}
+    <li><a style="color:black"><img style="padding-left: 30px;" src="{% static 'me.png' %}" width="80"></a><a style="color:black; padding-left: 40px;">{{ user.username|title }}</a></li>
+    <li><a style="color:black" href="{% url 'home' %}"><img style="padding-left: 25px;" src="{% static 'home.png' %}" width="85"></a><a style="color:black" href="{% url 'home' %}"><span style="padding-left: 25px;">Home</span></a></li>
+    <li><a style="color:black" href="{% url 'todo' %}"><img style="padding-left: 30px;" src="{% static 'to.png' %}" width="80"></a><a style="color:black" href="{% url 'todo' %}"><span style="padding-left: 10px;">To-Do List</span></a></li>
 </ul>
 
 <ul style="max-width: 100%;" class="nav navbar-nav navbar-right">
-    {% for image6 in image6 %}<li><a style="color:black" href="{% url 'password_change' %}"><img src="{{ image6.image6.url }}" width="100"></a><a style="color:black" href="{% url 'password_change' %}"><span style="padding-left: 10px;">Password</span></a></li>{%endfor%}
-    {% for image7 in image7 %}<li><a style="color:black" href="{% url 'logout' %}"><img style="padding-left: 15px;" src="{{ image7.image7.url }}" width="80"></a><a style="color:black" href="{% url 'logout' %}"><span style="padding-left: 10px;">Log Out</span></a></li>{%endfor%}
+    <li><a style="color:black" href="{% url 'password_change' %}"><img src="{% static 'pa.png' %}" width="100"></a><a style="color:black" href="{% url 'password_change' %}"><span style="padding-left: 10px;">Password</span></a></li>
+    <li><a style="color:black" href="{% url 'logout' %}"><img style="padding-left: 15px;" src="{% static 'out.png' %}" width="80"></a><a style="color:black" href="{% url 'logout' %}"><span style="padding-left: 10px;">Log Out</span></a></li>
 </ul>
 
 {% else %}
 
 <ul style="max-width: 100%;" class="nav navbar-nav">
-    {% for image4 in image4 %}<li><a style="color:black" href="{% url 'home' %}"><img style="padding-left: 20px;" src="{{ image4.image4.url }}" width="80"></a><a style="color:black" href="{% url 'home' %}"><span style="padding-left: 25px;">Home</span></a></li>{%endfor%}
+    <li><a style="color:black" href="{% url 'home' %}"><img style="padding-left: 20px;" src="{% static 'home.png' %}" width="80"></a><a style="color:black" href="{% url 'home' %}"><span style="padding-left: 25px;">Home</span></a></li>
 </ul>
 
 <ul style="max-width: 100%;" class="nav navbar-nav navbar-right">
-    {% for image8 in image8 %}<li><a style="color:black" href="{% url 'register' %}"><img style="padding-left: 25px;" src="{{ image8.image8.url }}" width="80"></a><a style="color:black" href="{% url 'register' %}"><span style="padding-left: 20px;">Register</span></a></li>{%endfor%}
-    {% for image9 in image9 %}<li><a style="color:black" href="{% url 'login' %}"><img src="{{ image9.image9.url }}" width="100"></a><a style="color:black" href="{% url 'login' %}"><span style="padding-left: 25px;">Log In</span></a></li>{%endfor%}
+    <li><a style="color:black" href="{% url 'register' %}"><img style="padding-left: 25px;" src="{% static 'reg.png' %}" width="80"></a><a style="color:black" href="{% url 'register' %}"><span style="padding-left: 20px;">Register</span></a></li>
+    <li><a style="color:black" href="{% url 'login' %}"><img src="{% static 'log.png' %}" width="100"></a><a style="color:black" href="{% url 'login' %}"><span style="padding-left: 25px;">Log In</span></a></li>
 </ul>
 
 {% endif %}

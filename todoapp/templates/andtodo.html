@@ -7,6 +7,7 @@
 </head>
 
 {% extends "base1.html" %}
+{% load static %}
 
 <body>
 
@@ -19,13 +20,13 @@
             <div class="item active">
                 <div class="container">
 
-                    {% for image5 in image5 %}<div class="carousel-caption">
+                    <div class="carousel-caption">
 
-                        <img src="{{ image5.image5.url }}" width="100">
+                        <img src="{% static 'to.png' %}" width="100">
 
                         <span style="font-size: 40px;"><b>Completed Tasks</b></span>
 
-                    </div>{%endfor%}
+                    </div>
                 </div>
             </div>
         </div>

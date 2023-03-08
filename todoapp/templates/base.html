@@ -11,14 +11,12 @@
     <script crossorigin="anonymous" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <title> BFF - Home </title>
-
-{% for image2 in image2 %}
-
+    {% load static %}
     <style>
 
         .carousel .item {
             height: 550px;
-            background-image: linear-gradient(rgba(75, 80, 181, 0.9), rgba(0, 0, 0, 0.9) ), url('{{ image2.image2.url }}');      
+            background-image: linear-gradient(rgba(75, 80, 181, 0.9), rgba(0, 0, 0, 0.9) );      
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -52,8 +50,6 @@
 
     </style>
 
-{%endfor%}
-
 </head>
 
 <body>
@@ -67,11 +63,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
 
-                    {% for image1 in image1 %}
-
-                    <a class="navbar-brand" href="#"><div style="color:blue; font-size: larger;"><img src="{{ image1.image1.url }}" width="50"><b style="padding-left: 20px;">Big Foot Family</b></div></a>
-
-                    {% endfor %}
+                    <a class="navbar-brand" href="#"><div style="color:blue; font-size: larger;"><img src="{% static 'bf.png' %}" width="50"><b style="padding-left: 20px;">Big Foot Family</b></div></a>
 
                 </div>
             </div>
